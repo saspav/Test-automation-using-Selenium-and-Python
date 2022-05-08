@@ -145,6 +145,11 @@ class MakeTask:
             __import__('time').sleep(30)
         else:
             print('Решено верно!!!')
+            # ждем появления результата решения
+            wait.until(elem_loc((By.CLASS_NAME, 'attempt-message_correct')))
+            message = self.browser.find_element(By.CLASS_NAME,
+                                                'smart-hints__hint').text
+            return message
 
     def solution(self, task_url=None, lesson_url=None):
         if not task_url:
