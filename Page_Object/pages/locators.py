@@ -2,4 +2,4 @@
 
 
 class MainPageLocators:
-    LOGIN_LINK = (By.CSS_SELECTOR, "#registration_link")
+    LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
