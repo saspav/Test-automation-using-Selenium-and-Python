@@ -25,8 +25,7 @@ class ProductPage(BasePage):
             *ProductPageLocators.BASKET_LINK), "Button add to basket is not presented"
 
     def user_can_add_product_to_basket(self):
-        link = self.browser.find_element(*ProductPageLocators.BASKET_LINK)
-        link.click()
+        self.browser.find_element(*ProductPageLocators.BASKET_LINK).click()
 
     def should_be_message_after_add_product(self):
         # проверяем, что элементы присутствуют на странице
@@ -42,8 +41,9 @@ class ProductPage(BasePage):
     def should_be_message_content_of_basket(self):
         # проверяем, что товар присутствует на странице
         assert self.is_element_present(*ProductPageLocators.MESSAGE_CONTENT_BASKET), "Message content basket is not presented"
+        assert self.is_element_present(*ProductPageLocators.PRODUCT_PRICE), "Product price is not present"
         # получаем текст элементов для проверки
         product_name, product_price = self.get_product_info()
-        message_content_basket = self.browser.find_element(*ProductPageLocators.MESSAGE_CONTENT_BASKET).text
+        message_content_basket = self.browser.find_element(*ProductPageLocators.MESSAGE_CONTENT_BASKET).text.split()[-1]
         # проверяем, что цена товара есть в сообщении о стоимости корзины
-        assert product_price in message_content_basket, "No product price in the message"
+        assert product_price == message_content_basket, "No product price is not equal to the product cost"
