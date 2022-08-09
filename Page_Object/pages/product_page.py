@@ -47,3 +47,9 @@ class ProductPage(BasePage):
         message_content_basket = self.browser.find_element(*ProductPageLocators.MESSAGE_CONTENT_BASKET).text.split()[-1]
         # проверяем, что цена товара есть в сообщении о стоимости корзины
         assert product_price == message_content_basket, "No product price is not equal to the product cost"
+
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), "Success message is presented, but should not be"
+
+    def should_be_disappeared_message(self):
+        assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), "Success message is not disappeared"

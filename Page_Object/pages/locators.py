@@ -16,3 +16,4 @@ class ProductPageLocators:
     BASKET_LINK = (By.CSS_SELECTOR, ".btn-add-to-basket")
     MESSAGE_AFTER_ADD = (By.CSS_SELECTOR, "div.alertinner")
     MESSAGE_CONTENT_BASKET = (By.CSS_SELECTOR, ".alert-noicon.alert-info p")
+    SUCCESS_MESSAGE = (By.CSS_SELECTOR, "div.alert-success")
