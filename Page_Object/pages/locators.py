@@ -4,6 +4,7 @@
 class BasePageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
+    BASKET_LINK = (By.CSS_SELECTOR, "span.btn-group > a.btn")
 
 
 class MainPageLocators:
@@ -22,3 +23,8 @@ class ProductPageLocators:
     MESSAGE_AFTER_ADD = (By.CSS_SELECTOR, "div.alertinner")
     MESSAGE_CONTENT_BASKET = (By.CSS_SELECTOR, ".alert-noicon.alert-info p")
     SUCCESS_MESSAGE = (By.CSS_SELECTOR, "div.alert-success")
+
+
+class BasketPageLocators:
+    EMPTY_BUSKET_MESSAGE = (By.CSS_SELECTOR, "#content_inner p")
+    ITEM_IN_BUSKET = (By.CSS_SELECTOR, ".basket_summary")
